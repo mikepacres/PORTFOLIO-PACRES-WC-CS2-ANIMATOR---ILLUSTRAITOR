@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Anthony B. Pacres | Animator & Illustrator Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom Tailwind Theme Configuration with explicit palette colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navyPrimary: '#2C3E50',
+                        slateDark: '#34495E',
+                        periwinkleAccent: '#7F8CBD',
+                        grayLight: '#BDC3C7',
+                        offWhiteBg: '#ECF0F1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    aspectRatio: {
+                        'a4': '1 / 1.414',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Fixed Aspect-Ratio Frames */
+        body {
+            background-color: #ECF0F1;
+            color: #2C3E50;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Fixed frame styling to ensure images fit perfectly without distortion or overflowing */
+        .fixed-img-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            background-color: #34495E;
+        }
+
+        .fixed-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .fixed-img-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        /* A4 Fixed Resume Frame for exact 1:1.414 Aspect Ratio */
+        .a4-resume-frame {
+            width: 100%;
+            max-width: 680px;
+            aspect-ratio: 1 / 1.414;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .a4-resume-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #ffffff;
+        }
+
+        /* Scroll Animations & Transitions */
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Data Privacy Badge Pulse Glow */
+        .privacy-badge {
+            animation: subtlePulse 3s infinite;
+        }
+
+        @keyframes subtlePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(127, 139, 189, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(127, 139, 189, 0); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ECF0F1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7F8CBD;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2C3E50;
+        }
+    </style>
+</head>
+<body class="bg-offWhiteBg text-navyPrimary antialiased selection:bg-periwinkleAccent selection:text-white">
+
+<!-- HEADER & NAVIGATION (RA 10173 Compliant) -->
+<header class="sticky top-0 z-50 bg-navyPrimary/95 backdrop-blur-md border-b border-periwinkleAccent/30 shadow-lg text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+
+            <!-- Logo / Brand Identity -->
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-periwinkleAccent to-slateDark flex items-center justify-center text-white font-bold text-xl shadow-md border border-periwinkleAccent/40 group-hover:scale-105 transition-transform">
+                    MP
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight block leading-tight">Mike Anthony B. Pacres</span>
+                    <span class="text-xs text-periwinkleAccent font-medium block">BSIT Grad · Animator & Illustrator</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-periwinkleAccent transition-colors">About</a>
+                <a href="#resume" class="hover:text-periwinkleAccent transition-colors">Résumé</a>
+                <a href="#artifacts" class="hover:text-periwinkleAccent transition-colors">Work Samples</a>
+                <a href="#casestudies" class="hover:text-periwinkleAccent transition-colors">Case Studies</a>
+                <a href="#credentials" class="hover:text-periwinkleAccent transition-colors">Credentials</a>
+                <a href="#compliance" class="hover:text-periwinkleAccent transition-colors">Privacy Statement</a>
+            </nav>
+
+            <!-- Compliance Badge & Mobile Menu Button -->
+            <div class="flex items-center space-x-3">
+                <!-- RA 10173 Privacy Badge -->
+                <div class="privacy-badge hidden sm:flex items-center space-x-2 bg-slateDark/80 border border-periwinkleAccent/40 px-3 py-1.5 rounded-full text-xs text-slate-200">
+                    <i class="fa-solid fa-shield-halved text-periwinkleAccent"></i>
+                    <span class="font-semibold text-white">RA 10173 Compliant</span>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button id="mobile-menu-btn" type="button" class="md:hidden text-grayLight hover:text-white focus:outline-none p-2 rounded-lg bg-slateDark" aria-label="Toggle navigation menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slateDark border-b border-periwinkleAccent/30 px-4 pt-3 pb-6 space-y-3 text-sm">
+        <a href="#about" class="block py-2 border-b border-gray-700/50 hover:text-periwinkleAccent">About & Skills</a>
+        <a href="#resume" class="block py-2 border-b border-gray-700/50 hover:text-periwinkleAccent">Résumé (A4 View)</a>
+        <a href="#artifacts" class="block py-2 border-b border-gray-700/50 hover:text-periwinkleAccent">Work Samples</a>
+        <a href="#casestudies" class="block py-2 border-b border-gray-700/50 hover:text-periwinkleAccent">Case Studies (STAR)</a>
+        <a href="#credentials" class="block py-2 border-b border-gray-700/50 hover:text-periwinkleAccent">Credentials & Certificates</a>
+        <a href="#compliance" class="block py-2 hover:text-periwinkleAccent">Privacy & Compliance (RA 10173)</a>
+        <div class="pt-2 flex items-center space-x-2 text-xs text-periwinkleAccent">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Zero sensitive personal data exposed (RA 10173)</span>
+        </div>
+    </div>
+</header>
+
+<!-- HERO & PROFESSIONAL PROFILE SECTION -->
+<section id="hero" class="relative py-12 md:py-20 bg-gradient-to-b from-navyPrimary to-slateDark text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+            <!-- Profile Image Fixed Container (Exact Aspect Ratio & Fit) -->
+            <div class="lg:col-span-4 flex justify-center">
+                <div class="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-2xl p-2 bg-gradient-to-tr from-periwinkleAccent to-slateDark shadow-2xl">
+                    <!-- FIXED PROFILE PICTURE FRAME -->
+                    <div class="fixed-img-frame rounded-xl border-2 border-periwinkleAccent/30 overflow-hidden w-full h-full">
+                        <!-- ========================================================================= -->
+                        <!-- [PLACEHOLDER 1: PROFILE PICTURE] -->
+                        <!-- REPLACE THE src ATTR BELOW WITH YOUR PROFILE IMAGE PATH: e.g., src="images/mike-pacres-profile.jpg" -->
+                        <!-- ========================================================================= -->
+                        <img id="profile-img"
+                             src="IMAGES/PROFILE.jpg"
+                             alt="Mike Anthony B. Pacres - Animator and Illustrator Profile Photo"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/2C3E50/ECF0F1?text=Profile+Image+Fallback';" />
+                    </div>
+
+                    <div class="absolute -bottom-3 -right-3 bg-periwinkleAccent text-navyPrimary font-bold text-xs px-3 py-1.5 rounded-full shadow-lg flex items-center space-x-1">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>CSU BSIT Grad</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bio & Professional Overview -->
+            <div class="lg:col-span-8 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-periwinkleAccent/20 border border-periwinkleAccent/40 px-3 py-1 rounded-full text-xs font-semibold text-periwinkleAccent mb-4">
+                    <i class="fa-solid fa-sparkles"></i>
+                    <span>Workplace Ready · IT & Digital Art Specialist</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
+                    Mike Anthony B. Pacres
+                </h1>
+
+                <p class="text-lg sm:text-xl font-medium text-grayLight mb-6">
+                    Animator, Illustrator & Information Technology Graduate
+                    <span class="block text-sm text-periwinkleAccent mt-1 font-normal">Caraga State University (CSU) · Bachelor of Science in Information Technology</span>
+                </p>
+
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-3xl">
+                    A versatile BSIT graduate bridging technical software capabilities with high-caliber 2D/3D animation, visual storytelling, and motion graphics. Trained under the academic rigor of Caraga State University, equipped with NACE workplace competencies and aligned with UP CAP employer expectations. Adept at agile collaboration, digital pipeline optimization, and creative user interface design.
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a href="#resume" class="bg-periwinkleAccent hover:bg-periwinkleAccent/80 text-navyPrimary font-bold px-6 py-3 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center space-x-2">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>View Interactive Résumé</span>
+                    </a>
+                    <a href="#artifacts" class="bg-slateDark border border-periwinkleAccent/50 hover:bg-navyPrimary text-white font-semibold px-6 py-3 rounded-xl transition-all flex items-center space-x-2">
+                        <i class="fa-solid fa-palette"></i>
+                        <span>Explore Creative Artifacts</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SECTION: NACE COMPETENCIES & CORE SKILLS -->
+<section id="about" class="py-16 bg-white border-b border-grayLight/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-12 fade-in-element">
+            <h2 class="text-2xl sm:text-3xl font-bold text-navyPrimary mb-3">Workplace Competencies & Core Technical Stack</h2>
+            <p class="text-slateDark/80 text-sm sm:text-base">
+                Aligned with the National Association of Colleges and Employers (NACE) Career Readiness Framework and Philippine IT Industry Standards.
+            </p>
+        </div>
+
+        <!-- NACE Competency Badges Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+            <div class="p-4 rounded-xl bg-offWhiteBg border border-grayLight/60 text-center hover:border-periwinkleAccent transition-colors">
+                <i class="fa-solid fa-brain text-2xl text-periwinkleAccent mb-2"></i>
+                <h3 class="font-bold text-xs sm:text-sm text-navyPrimary">Critical Thinking</h3>
+                <p class="text-[11px] text-gray-600 mt-1">Creative problem solving & asset optimization</p>
+            </div>
+            <div class="p-4 rounded-xl bg-offWhiteBg border border-grayLight/60 text-center hover:border-periwinkleAccent transition-colors">
+                <i class="fa-solid fa-laptop-code text-2xl text-periwinkleAccent mb-2"></i>
+                <h3 class="font-bold text-xs sm:text-sm text-navyPrimary">Digital Technology</h3>
+                <p class="text-[11px] text-gray-600 mt-1">2D/3D Animation, UI & Software Integration</p>
+            </div>
+            <div class="p-4 rounded-xl bg-offWhiteBg border border-grayLight/60 text-center hover:border-periwinkleAccent transition-colors">
+                <i class="fa-solid fa-comments text-2xl text-periwinkleAccent mb-2"></i>
+                <h3 class="font-bold text-xs sm:text-sm text-navyPrimary">Communication</h3>
+                <p class="text-[11px] text-gray-600 mt-1">Visual storytelling & storyboard pitch</p>
+            </div>
+            <div class="p-4 rounded-xl bg-offWhiteBg border border-grayLight/60 text-center hover:border-periwinkleAccent transition-colors">
+                <i class="fa-solid fa-user-tie text-2xl text-periwinkleAccent mb-2"></i>
+                <h3 class="font-bold text-xs sm:text-sm text-navyPrimary">Professionalism</h3>
+                <p class="text-[11px] text-gray-600 mt-1">RA 10173 Ethics & Deadline Reliability</p>
+            </div>
+            <div class="p-4 rounded-xl bg-offWhiteBg border border-grayLight/60 text-center hover:border-periwinkleAccent transition-colors col-span-2 md:col-span-1">
+                <i class="fa-solid fa-chart-line text-2xl text-periwinkleAccent mb-2"></i>
+                <h3 class="font-bold text-xs sm:text-sm text-navyPrimary">Career Growth</h3>
+                <p class="text-[11px] text-gray-600 mt-1">Adaptive learning in IT & Creative Tech</p>
+            </div>
+        </div>
+
+        <!-- Filterable Software & Technical Skills -->
+        <div class="bg-offWhiteBg p-6 rounded-2xl border border-grayLight/50 shadow-sm">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <h3 class="font-bold text-navyPrimary text-base sm:text-lg flex items-center space-x-2">
+                    <i class="fa-solid fa-layer-group text-periwinkleAccent"></i>
+                    <span>Technical Software & Production Skills</span>
+                </h3>
+
+                <!-- Skill Filter Buttons -->
+                <div id="skill-filters" class="flex flex-wrap gap-2 text-xs">
+                    <button data-filter="all" class="px-3 py-1.5 rounded-lg bg-navyPrimary text-white font-medium filter-btn active">All Skills</button>
+                    <button data-filter="animation" class="px-3 py-1.5 rounded-lg bg-white border border-grayLight text-navyPrimary font-medium filter-btn hover:border-periwinkleAccent">Animation</button>
+                    <button data-filter="illustration" class="px-3 py-1.5 rounded-lg bg-white border border-grayLight text-navyPrimary font-medium filter-btn hover:border-periwinkleAccent">Illustration</button>
+                    <button data-filter="it" class="px-3 py-1.5 rounded-lg bg-white border border-grayLight text-navyPrimary font-medium filter-btn hover:border-periwinkleAccent">IT & Development</button>
+                </div>
+            </div>
+
+            <!-- Skill Badges Container -->
+            <div id="skills-container" class="flex flex-wrap gap-2.5">
+                    <span data-category="animation" class="skill-tag px-3.5 py-2 rounded-xl bg-white border border-grayLight text-xs font-semibold text-navyPrimary flex items-center space-x-2 shadow-sm">
+                        <i class="fa-solid fa-film text-periwinkleAccent"></i><span>2D Frame-by-Frame Animation</span>
+                    </span>
+                <span data-category="animation" class="skill-tag px-3.5 py-2 rounded-xl bg-white border border-grayLight text-xs font-semibold text-navyPrimary flex items-center space-x-2 shadow-sm">
+                        <i class="fa-solid fa-cube text-periwinkleAccent"></i><span>3D Modeling (Blender)</span>
+                    </span>
+                <span data-category="animation" class="skill-tag px-3.5 py-2 rounded-xl bg-white border border-grayLight text-xs font-semibold text-navyPrimary flex items-center space-x-2 shadow-sm">
+                        <i class="fa-solid fa-clapperboard text-periwinkleAccent"></i><span>Adobe After Effects (Motion)</span>
+                    </span>
+                <span data-category="illustration" class="skill-tag px-3.5 py-2 rounded-xl bg-white border border-grayLight text-xs font-semibold text-navyPrimary flex items-center space-x-2 shadow-sm">
+                        <i class="fa-solid fa-paintbrush text-periwinkleAccent"></i><span>Adobe Photoshop & Illustrator</span>
+                    </span>
+                <span data-category="illustration" class="skill-tag px-3.5 py-2 rounded-xl bg-white border border-grayLight text-xs font-semibold text-navyPrimary flex items-center space-x-2 shadow-sm">
+                        <i class="fa-solid fa-pen-nib text-periwinkleAccent"></i><span>Clip Studio Paint</span>
+                    </span>
+                <span data-category="illustration" class="skill-tag px-3.5 py-2 rounded-xl bg-white border border-grayLight text-xs font-semibold text-navyPrimary flex items-center space-x-2 shadow-sm">
+                        <i class="fa-solid fa-chess-knight text-periwinkleAccent"></i><span>Character Design & Concept Art</span>
+                    </span>
+                <span data-category="it" class="skill-tag px-3.5 py-2 rounded-xl bg-white border border-grayLight text-xs font-semibold text-navyPrimary flex items-center space-x-2 shadow-sm">
+                        <i class="fa-solid fa-code text-periwinkleAccent"></i><span>HTML5 / CSS3 / JavaScript</span>
+                    </span>
+                <span data-category="it" class="skill-tag px-3.5 py-2 rounded-xl bg-white border border-grayLight text-xs font-semibold text-navyPrimary flex items-center space-x-2 shadow-sm">
+                        <i class="fa-solid fa-wand-magic-sparkles text-periwinkleAccent"></i><span>UI/UX Animation & Prototyping</span>
+                    </span>
+                <span data-category="it" class="skill-tag px-3.5 py-2 rounded-xl bg-white border border-grayLight text-xs font-semibold text-navyPrimary flex items-center space-x-2 shadow-sm">
+                        <i class="fa-solid fa-gamepad text-periwinkleAccent"></i><span>Game Asset & Sprite Sheet Creation</span>
+                    </span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- RESUME SECTION (HARVARD OCS & ATS STANDARDS WITH EXACT A4 FIXED IMAGE FRAME) -->
+<section id="resume" class="py-16 bg-offWhiteBg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-10 fade-in-element">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-periwinkleAccent bg-periwinkleAccent/10 px-3 py-1 rounded-md">
+                    ATS-Friendly & Harvard OCS Aligned
+                </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-navyPrimary mt-2 mb-3">Professional 1-Page Résumé</h2>
+            <p class="text-slateDark/80 text-sm">
+                Formatted to standard A4 dimensions. Click on the image frame to view full screen or toggle the accessible plain text version below.
+            </p>
+        </div>
+
+        <!-- Action Controls Toolbar -->
+        <div class="max-w-4xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 bg-white p-4 rounded-xl border border-grayLight/60 shadow-sm">
+            <div class="flex items-center space-x-2 text-xs text-slateDark font-semibold">
+                <i class="fa-solid fa-file-image text-periwinkleAccent text-base"></i>
+                <span>A4 Printable Resume Canvas (Aspect Ratio 1 : 1.414)</span>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <button id="toggle-text-resume" class="px-3.5 py-2 rounded-lg bg-offWhiteBg hover:bg-grayLight/40 text-navyPrimary text-xs font-semibold transition-colors flex items-center space-x-1">
+                    <i class="fa-solid fa-align-left"></i>
+                    <span>Toggle Text Fallback</span>
+                </button>
+                <button onclick="openLightbox('resume-a4-img', 'Mike Anthony B. Pacres - ATS Resume A4')" class="px-4 py-2 rounded-lg bg-navyPrimary hover:bg-slateDark text-white text-xs font-semibold transition-colors flex items-center space-x-1">
+                    <i class="fa-solid fa-expand"></i>
+                    <span>Full Screen Zoom</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- EXACT A4 RESUME IMAGE CONTAINER FRAME -->
+        <div class="a4-resume-frame border border-grayLight hover:border-periwinkleAccent transition-all group cursor-pointer" onclick="openLightbox('resume-a4-img', 'Mike Anthony B. Pacres - ATS Resume A4')">
+            <!-- ========================================================================= -->
+            <!-- [PLACEHOLDER 2: A4 RESUME IMAGE] -->
+            <!-- REPLACE THE src ATTR BELOW WITH YOUR RESUME IMAGE PATH: e.g., src="images/mike-pacres-resume-a4.jpg" -->
+            <!-- ========================================================================= -->
+            <img id="resume-a4-img"
+                 src="IMAGES/RESUME.jpg"
+                 alt="Mike Anthony B. Pacres - ATS Friendly A4 Resume Image"/>
+
+            <div class="absolute inset-0 bg-navyPrimary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="bg-navyPrimary text-white font-bold text-xs px-4 py-2 rounded-lg shadow-xl flex items-center space-x-2">
+                        <i class="fa-solid fa-magnifying-glass-plus text-periwinkleAccent"></i>
+                        <span>Click to Enlarge A4 Résumé</span>
+                    </span>
+            </div>
+        </div>
+
+        <!-- ACCESSIBLE PLAIN TEXT RESUME FALLBACK DRAWER (HIDDEN BY DEFAULT) -->
+        <div id="text-resume-drawer" class="hidden max-w-4xl mx-auto mt-8 bg-white p-8 rounded-2xl border border-grayLight/80 shadow-lg text-sm text-slateDark space-y-6">
+            <div class="border-b border-gray-200 pb-4">
+                <h3 class="text-xl font-bold text-navyPrimary">MIKE ANTHONY B. PACRES</h3>
+                <p class="text-xs text-periwinkleAccent font-medium">Animator & Digital Illustrator | BSIT Graduate</p>
+                <p class="text-xs text-gray-500 mt-1">Caraga State University, Philippines | Specialized in IT Media Pipelines</p>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-navyPrimary uppercase text-xs tracking-wider border-b border-periwinkleAccent/30 pb-1 mb-2">Education</h4>
+                <div class="flex justify-between font-semibold text-xs">
+                    <span>Caraga State University (CSU)</span>
+                    <span>Graduated 2026</span>
+                </div>
+                <p class="text-xs text-gray-600">Bachelor of Science in Information Technology (BSIT)</p>
+                <p class="text-xs text-gray-500 mt-1">Focus: Digital Media Engineering, 2D/3D Asset Pipelines, Mobile UI/UX Design.</p>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-navyPrimary uppercase text-xs tracking-wider border-b border-periwinkleAccent/30 pb-1 mb-2">Key Experience & Projects</h4>
+                <div class="space-y-3 text-xs">
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>Lead Animator & Media Designer — Regional Cultural Series</span>
+                            <span>2025 – 2026</span>
+                        </div>
+                        <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                            <li>Produced 5 core 2D animated episodes depicting regional lore, reducing render overhead by 30% via vector-rigging techniques.</li>
+                            <li>Collaborated with a 4-person development team to integrate assets smoothly into interactive e-learning modules.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="flex justify-between font-semibold">
+                            <span>UI/UX Motion Graphics Designer — CSU E-Learning Initiative</span>
+                            <span>2024 – 2025</span>
+                        </div>
+                        <ul class="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                            <li>Designed 20+ custom vector illustrations and sprite sheets for web-based learning software.</li>
+                            <li>Maintained strict adherence to web accessibility standards and lightweight mobile rendering.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-navyPrimary uppercase text-xs tracking-wider border-b border-periwinkleAccent/30 pb-1 mb-2">Technical Capabilities</h4>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                    <strong>Software:</strong> Blender, Adobe Animate, Photoshop, Illustrator, After Effects, Clip Studio Paint, Figma.<br>
+                    <strong>Development & Tools:</strong> HTML5, CSS3, JavaScript, Git, Agile Methodology, Digital Asset Management.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- WORK SAMPLES / CREATIVE ARTIFACTS SECTION (3-5 FIXED ASPECT RATIO ITEMS) -->
+<section id="artifacts" class="py-16 bg-white border-y border-grayLight/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-12 fade-in-element">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-periwinkleAccent bg-periwinkleAccent/10 px-3 py-1 rounded-md">
+                    Portfolio Gallery
+                </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-navyPrimary mt-2 mb-3">Work Samples & Creative Artifacts</h2>
+            <p class="text-slateDark/80 text-sm">
+                Curated selection of 2D/3D animation assets, storyboards, character concepts, and interactive media designed during BSIT coursework and external creative projects.
+            </p>
+        </div>
+
+        <!-- Artifacts Grid (5 Items with Fixed Aspect Frames) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Artifact 1 -->
+            <div class="bg-offWhiteBg rounded-2xl overflow-hidden border border-grayLight/60 shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-video w-full relative overflow-hidden bg-slateDark cursor-pointer" onclick="openLightbox('artifact-1-img', '2D Character Concept Art & Animation Sheet')">
+                    <div class="fixed-img-frame">
+                        <!-- ========================================================================= -->
+                        <!-- [PLACEHOLDER 3: WORK SAMPLE 1] -->
+                        <!-- REPLACE THE src ATTR BELOW WITH YOUR ARTWORK IMAGE PATH: e.g., src="images/artifact-1.jpg" -->
+                        <!-- ========================================================================= -->
+                        <img id="artifact-1-img"
+                             src="IMAGES/ARTIFACT1.jpg"
+                             alt="2D Character Concept Art & Animation Sheet"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x450/2C3E50/ECF0F1?text=Work+Sample+Fallback';" />
+                    </div>
+                    <span class="absolute top-3 left-3 bg-navyPrimary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">2D Animation</span>
+                </div>
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-base text-navyPrimary mb-1">2D Character Concept & Animation Sheet</h3>
+                        <p class="text-xs text-gray-600 mb-4 leading-relaxed">Turnaround sheets and keyframe walk-cycle animation rigs created for an indie digital storytelling project.</p>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-periwinkleAccent font-semibold pt-3 border-t border-gray-200">
+                        <span>Clip Studio Paint & Adobe Animate</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square cursor-pointer" onclick="openLightbox('artifact-1-img', '2D Character Concept Art & Animation Sheet')"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artifact 2 -->
+            <div class="bg-offWhiteBg rounded-2xl overflow-hidden border border-grayLight/60 shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-video w-full relative overflow-hidden bg-slateDark cursor-pointer" onclick="openLightbox('artifact-2-img', 'Motion Graphics Storyboard Sequence')">
+                    <div class="fixed-img-frame">
+                        <!-- ========================================================================= -->
+                        <!-- [PLACEHOLDER 4: WORK SAMPLE 2] -->
+                        <!-- REPLACE THE src ATTR BELOW WITH YOUR ARTWORK IMAGE PATH: e.g., src="images/artifact-2.jpg" -->
+                        <!-- ========================================================================= -->
+                        <img id="artifact-2-img"
+                             src="IMAGES/ARTIFACT2.jpg"
+                             alt="Motion Graphics Explainer Video Storyboard"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x450/34495E/ECF0F1?text=Work+Sample+Fallback';" />
+                    </div>
+                    <span class="absolute top-3 left-3 bg-navyPrimary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Motion Graphics</span>
+                </div>
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-base text-navyPrimary mb-1">Explainer Video Motion Storyboard</h3>
+                        <p class="text-xs text-gray-600 mb-4 leading-relaxed">Structured visual storyboard mapping audio cues, transition effects, and vector graphic movements for educational modules.</p>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-periwinkleAccent font-semibold pt-3 border-t border-gray-200">
+                        <span>Adobe After Effects & Illustrator</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square cursor-pointer" onclick="openLightbox('artifact-2-img', 'Motion Graphics Storyboard Sequence')"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artifact 3 -->
+            <div class="bg-offWhiteBg rounded-2xl overflow-hidden border border-grayLight/60 shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-video w-full relative overflow-hidden bg-slateDark cursor-pointer" onclick="openLightbox('artifact-3-img', 'Game Asset & Sprite Sheet Design')">
+                    <div class="fixed-img-frame">
+                        <!-- ========================================================================= -->
+                        <!-- [PLACEHOLDER 5: WORK SAMPLE 3] -->
+                        <!-- REPLACE THE src ATTR BELOW WITH YOUR ARTWORK IMAGE PATH: e.g., src="images/artifact-3.jpg" -->
+                        <!-- ========================================================================= -->
+                        <img id="artifact-3-img"
+                             src="IMAGES/ARTIFACT3.jpg"
+                             alt="Game Asset & Sprite Sheet Design"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x450/7F8CBD/2C3E50?text=Work+Sample+Fallback';" />
+                    </div>
+                    <span class="absolute top-3 left-3 bg-navyPrimary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Game Design</span>
+                </div>
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-base text-navyPrimary mb-1">Game Environment & Sprite Sheet</h3>
+                        <p class="text-xs text-gray-600 mb-4 leading-relaxed">Optimized sprite atlases and 2D tilemap textures engineered for seamless integration into web game engines.</p>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-periwinkleAccent font-semibold pt-3 border-t border-gray-200">
+                        <span>Photoshop & Unity 2D Pipeline</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square cursor-pointer" onclick="openLightbox('artifact-3-img', 'Game Asset & Sprite Sheet Design')"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artifact 4 -->
+            <div class="bg-offWhiteBg rounded-2xl overflow-hidden border border-grayLight/60 shadow-sm hover:shadow-md transition-all flex flex-col">
+                <div class="aspect-video w-full relative overflow-hidden bg-slateDark cursor-pointer" onclick="openLightbox('artifact-4-img', 'Digital Editorial Illustration')">
+                    <div class="fixed-img-frame">
+                        <!-- ========================================================================= -->
+                        <!-- [PLACEHOLDER 6: WORK SAMPLE 4] -->
+                        <!-- REPLACE THE src ATTR BELOW WITH YOUR ARTWORK IMAGE PATH: e.g., src="images/artifact-4.jpg" -->
+                        <!-- ========================================================================= -->
+                        <img id="artifact-4-img"
+                             src="IMAGES/ARTIFACT4.jpg"
+                             alt="Digital Editorial Illustration"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x450/2C3E50/ECF0F1?text=Work+Sample+Fallback';" />
+                    </div>
+                    <span class="absolute top-3 left-3 bg-navyPrimary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Illustration</span>
+                </div>
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-base text-navyPrimary mb-1">Digital Editorial & Banner Artwork</h3>
+                        <p class="text-xs text-gray-600 mb-4 leading-relaxed">High-resolution vector artwork and editorial digital paintings designed for institutional publications.</p>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-periwinkleAccent font-semibold pt-3 border-t border-gray-200">
+                        <span>Adobe Illustrator & Clip Studio</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square cursor-pointer" onclick="openLightbox('artifact-4-img', 'Digital Editorial Illustration')"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artifact 5 -->
+            <div class="bg-offWhiteBg rounded-2xl overflow-hidden border border-grayLight/60 shadow-sm hover:shadow-md transition-all flex flex-col md:col-span-2 lg:col-span-1">
+                <div class="aspect-video w-full relative overflow-hidden bg-slateDark cursor-pointer" onclick="openLightbox('artifact-5-img', '3D Low-Poly Asset & UI Animation')">
+                    <div class="fixed-img-frame">
+                        <!-- ========================================================================= -->
+                        <!-- [PLACEHOLDER 7: WORK SAMPLE 5] -->
+                        <!-- REPLACE THE src ATTR BELOW WITH YOUR ARTWORK IMAGE PATH: e.g., src="images/artifact-5.jpg" -->
+                        <!-- ========================================================================= -->
+                        <img id="artifact-5-img"
+                             src="IMAGES/ARTIFACT5.jpg"
+                             alt="3D Low-Poly Asset & UI Animation"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x450/34495E/ECF0F1?text=Work+Sample+Fallback';" />
+                    </div>
+                    <span class="absolute top-3 left-3 bg-navyPrimary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">3D & UI</span>
+                </div>
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-base text-navyPrimary mb-1">3D Low-Poly Asset & UI Micro-Animations</h3>
+                        <p class="text-xs text-gray-600 mb-4 leading-relaxed">Low-polygon 3D prop models rendered with light maps alongside interactive UI state animations.</p>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-periwinkleAccent font-semibold pt-3 border-t border-gray-200">
+                        <span>Blender & Lottie / CSS Animation</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square cursor-pointer" onclick="openLightbox('artifact-5-img', '3D Low-Poly Asset & UI Animation')"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CASE STUDIES SECTION (STAR FORMAT - SITUATION, TASK, ACTION, RESULT) -->
+<section id="casestudies" class="py-16 bg-offWhiteBg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-12 fade-in-element">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-periwinkleAccent bg-periwinkleAccent/10 px-3 py-1 rounded-md">
+                    STAR Methodology
+                </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-navyPrimary mt-2 mb-3">Project Case Studies</h2>
+            <p class="text-slateDark/80 text-sm">
+                Structured breakdown demonstrating problem solving, IT collaboration, and quantifiable outcomes in creative production.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- CASE STUDY 1 -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-grayLight/70 shadow-sm flex flex-col justify-between hover:border-periwinkleAccent transition-all">
+                <div>
+                    <div class="flex items-center justify-between mb-4 border-b border-gray-100 pb-3">
+                        <span class="text-xs font-bold text-periwinkleAccent uppercase tracking-wide">Case Study #1</span>
+                        <span class="text-xs bg-navyPrimary text-white px-2.5 py-1 rounded-md font-medium">CSU Heritage Animation</span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-navyPrimary mb-4">Caraga Cultural Heritage 2D Animation Series</h3>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slateDark">
+                        <div class="p-3 bg-offWhiteBg rounded-xl border-l-4 border-navyPrimary">
+                            <span class="font-bold text-navyPrimary block mb-0.5">S — Situation:</span>
+                            Regional cultural lore in Caraga faced declining youth engagement due to a lack of modernized digital learning materials.
+                        </div>
+                        <div class="p-3 bg-offWhiteBg rounded-xl border-l-4 border-slateDark">
+                            <span class="font-bold text-navyPrimary block mb-0.5">T — Task:</span>
+                            Lead the animation and illustration pipeline for a 3-part animated series suitable for web distribution and mobile e-learning.
+                        </div>
+                        <div class="p-3 bg-offWhiteBg rounded-xl border-l-4 border-periwinkleAccent">
+                            <span class="font-bold text-navyPrimary block mb-0.5">A — Action:</span>
+                            Constructed vector-rigged character models in Adobe Animate, engineered standardized sprite sheets, and established an agile review workflow using Clip Studio Paint and GitHub asset tracking.
+                        </div>
+                        <div class="p-3 bg-offWhiteBg rounded-xl border-l-4 border-green-600">
+                            <span class="font-bold text-navyPrimary block mb-0.5">R — Result:</span>
+                            Successfully delivered 15 minutes of fully animated content, reducing asset file sizes by 40% while achieving a 92% positive rating in user testing across CSU campus demos.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                    <span>Tools: Adobe Animate, Photoshop, CSP</span>
+                    <span class="font-semibold text-navyPrimary"><i class="fa-solid fa-check-circle text-green-600 mr-1"></i>Completed Project</span>
+                </div>
+            </div>
+
+            <!-- CASE STUDY 2 -->
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-grayLight/70 shadow-sm flex flex-col justify-between hover:border-periwinkleAccent transition-all">
+                <div>
+                    <div class="flex items-center justify-between mb-4 border-b border-gray-100 pb-3">
+                        <span class="text-xs font-bold text-periwinkleAccent uppercase tracking-wide">Case Study #2</span>
+                        <span class="text-xs bg-navyPrimary text-white px-2.5 py-1 rounded-md font-medium">CSU E-Learning Motion</span>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-navyPrimary mb-4">Interactive Educational Motion Graphics Module</h3>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slateDark">
+                        <div class="p-3 bg-offWhiteBg rounded-xl border-l-4 border-navyPrimary">
+                            <span class="font-bold text-navyPrimary block mb-0.5">S — Situation:</span>
+                            Students reported low engagement with static, text-heavy IT course materials on the department e-learning platform.
+                        </div>
+                        <div class="p-3 bg-offWhiteBg rounded-xl border-l-4 border-slateDark">
+                            <span class="font-bold text-navyPrimary block mb-0.5">T — Task:</span>
+                            Create lightweight motion graphics, vector diagrams, and animated micro-interactions to illustrate complex algorithmic concepts.
+                        </div>
+                        <div class="p-3 bg-offWhiteBg rounded-xl border-l-4 border-periwinkleAccent">
+                            <span class="font-bold text-navyPrimary block mb-0.5">A — Action:</span>
+                            Designed motion storyboards, rendered 60fps vector animations in After Effects, and converted animations to Lottie JSON formats to maintain instantaneous load times on mobile web browsers.
+                        </div>
+                        <div class="p-3 bg-offWhiteBg rounded-xl border-l-4 border-green-600">
+                            <span class="font-bold text-navyPrimary block mb-0.5">R — Result:</span>
+                            Module completion rates rose by 35% among test student groups, earning recognition at the CSU BSIT Department Tech Showcase.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                    <span>Tools: After Effects, Illustrator, Lottie</span>
+                    <span class="font-semibold text-navyPrimary"><i class="fa-solid fa-check-circle text-green-600 mr-1"></i>Completed Project</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CREDENTIALS / CERTIFICATES / BADGES SECTION (WITH REDACTED DATA INDICATOR & FIXED FRAMES) -->
+<section id="credentials" class="py-16 bg-white border-y border-grayLight/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-12 fade-in-element">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-periwinkleAccent bg-periwinkleAccent/10 px-3 py-1 rounded-md">
+                    Verified Competencies
+                </span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-navyPrimary mt-2 mb-3">Credentials & Certificates</h2>
+            <p class="text-slateDark/80 text-sm">
+                Academic certifications and technical training credentials. All documents are displayed with redacted personal sensitive data in accordance with Philippine Data Privacy Regulations (RA 10173).
+            </p>
+        </div>
+
+        <!-- 3 Fixed Frame Certificate Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- CERTIFICATE 1 -->
+            <div class="bg-offWhiteBg p-4 rounded-2xl border border-grayLight/70 flex flex-col justify-between hover:shadow-md transition-all">
+                <div>
+                    <!-- Fixed Frame Certificate Container (Aspect Ratio 4:3) -->
+                    <div class="aspect-[4/3] w-full rounded-xl overflow-hidden border border-grayLight mb-4 relative cursor-pointer group" onclick="openLightbox('cert-1-img', 'BSIT Degree Diploma - Caraga State University')">
+                        <div class="fixed-img-frame">
+                            <!-- ========================================================================= -->
+                            <!-- [PLACEHOLDER 8: CERTIFICATE 1 IMAGE] -->
+                            <!-- REPLACE THE src ATTR BELOW WITH YOUR CERTIFICATE IMAGE PATH: e.g., src="images/cert-1.jpg" -->
+                            <!-- ========================================================================= -->
+                            <img id="cert-1-img"
+                                 src="IMAGES/CERT1.jpg"
+                                 alt="BSIT Degree Diploma Certificate - Caraga State University"/>
+                        </div>
+
+                        <!-- Redacted Data Badge Indicator Overlay -->
+                        <div class="absolute top-2 right-2 bg-red-600/90 text-white text-[9px] font-extrabold px-2 py-0.5 rounded shadow">
+                            <i class="fa-solid fa-lock text-[8px] mr-1"></i>RA 10173 Redacted
+                        </div>
+
+                        <div class="absolute inset-0 bg-navyPrimary/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white text-navyPrimary text-xs font-bold px-3 py-1.5 rounded-md shadow">Enlarge Certificate</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-bold text-sm text-navyPrimary mb-1">BSIT Degree Diploma</h3>
+                    <p class="text-xs text-periwinkleAccent font-medium mb-2">Caraga State University (CSU)</p>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Official graduation credential certifying completion of Bachelor of Science in Information Technology curriculum.</p>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-gray-200 flex items-center justify-between text-[11px] text-gray-500">
+                    <span>Issued: 2026</span>
+                    <span class="text-green-700 font-semibold"><i class="fa-solid fa-shield-check mr-1"></i>Verified</span>
+                </div>
+            </div>
+
+            <!-- CERTIFICATE 2 -->
+            <div class="bg-offWhiteBg p-4 rounded-2xl border border-grayLight/70 flex flex-col justify-between hover:shadow-md transition-all">
+                <div>
+                    <!-- Fixed Frame Certificate Container (Aspect Ratio 4:3) -->
+                    <div class="aspect-[4/3] w-full rounded-xl overflow-hidden border border-grayLight mb-4 relative cursor-pointer group" onclick="openLightbox('cert-2-img', 'Digital Media & 2D Animation Specialist Certification')">
+                        <div class="fixed-img-frame">
+                            <!-- ========================================================================= -->
+                            <!-- [PLACEHOLDER 9: CERTIFICATE 2 IMAGE] -->
+                            <!-- REPLACE THE src ATTR BELOW WITH YOUR CERTIFICATE IMAGE PATH: e.g., src="images/cert-2.jpg" -->
+                            <!-- ========================================================================= -->
+                            <img id="cert-2-img"
+                                 src="IMAGES/CERT2.jpg"
+                                 alt="Digital Media & 2D Animation Specialist Certificate"/>
+                        </div>
+
+                        <!-- Redacted Data Badge Indicator Overlay -->
+                        <div class="absolute top-2 right-2 bg-red-600/90 text-white text-[9px] font-extrabold px-2 py-0.5 rounded shadow">
+                            <i class="fa-solid fa-lock text-[8px] mr-1"></i>RA 10173 Redacted
+                        </div>
+
+                        <div class="absolute inset-0 bg-navyPrimary/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white text-navyPrimary text-xs font-bold px-3 py-1.5 rounded-md shadow">Enlarge Certificate</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-bold text-sm text-navyPrimary mb-1">2D Animation & Asset Pipeline Cert</h3>
+                    <p class="text-xs text-periwinkleAccent font-medium mb-2">Creative Technology Institute</p>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Specialized training in frame-by-frame animation, digital illustration workflows, and motion vector graphics.</p>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-gray-200 flex items-center justify-between text-[11px] text-gray-500">
+                    <span>Issued: 2025</span>
+                    <span class="text-green-700 font-semibold"><i class="fa-solid fa-shield-check mr-1"></i>Verified</span>
+                </div>
+            </div>
+
+            <!-- CERTIFICATE 3 -->
+            <div class="bg-offWhiteBg p-4 rounded-2xl border border-grayLight/70 flex flex-col justify-between hover:shadow-md transition-all">
+                <div>
+                    <!-- Fixed Frame Certificate Container (Aspect Ratio 4:3) -->
+                    <div class="aspect-[4/3] w-full rounded-xl overflow-hidden border border-grayLight mb-4 relative cursor-pointer group" onclick="openLightbox('cert-3-img', 'UI/UX Design & Web Asset Integration Certification')">
+                        <div class="fixed-img-frame">
+                            <!-- ========================================================================= -->
+                            <!-- [PLACEHOLDER 10: CERTIFICATE 3 IMAGE] -->
+                            <!-- REPLACE THE src ATTR BELOW WITH YOUR CERTIFICATE IMAGE PATH: e.g., src="images/cert-3.jpg" -->
+                            <!-- ========================================================================= -->
+                            <img id="cert-3-img"
+                                 src="IMAGES/CERT3.jpg"
+                                 alt="UI/UX Design & Web Asset Integration Certificate"/>
+                        </div>
+
+                        <!-- Redacted Data Badge Indicator Overlay -->
+                        <div class="absolute top-2 right-2 bg-red-600/90 text-white text-[9px] font-extrabold px-2 py-0.5 rounded shadow">
+                            <i class="fa-solid fa-lock text-[8px] mr-1"></i>RA 10173 Redacted
+                        </div>
+
+                        <div class="absolute inset-0 bg-navyPrimary/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white text-navyPrimary text-xs font-bold px-3 py-1.5 rounded-md shadow">Enlarge Certificate</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-bold text-sm text-navyPrimary mb-1">UI/UX & Interactive Design Certificate</h3>
+                    <p class="text-xs text-periwinkleAccent font-medium mb-2">IT Industry Skills Accreditation</p>
+                    <p class="text-[11px] text-gray-600 leading-relaxed">Certification in responsive UI asset design, user journey mapping, and mobile graphics performance optimization.</p>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-gray-200 flex items-center justify-between text-[11px] text-gray-500">
+                    <span>Issued: 2025</span>
+                    <span class="text-green-700 font-semibold"><i class="fa-solid fa-shield-check mr-1"></i>Verified</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- RECOMMENDATIONS & DATA PRIVACY COMPLIANCE SECTION (RA 10173) -->
+<section id="compliance" class="py-16 bg-navyPrimary text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+            <!-- Endorsements & Recommendations -->
+            <div class="lg:col-span-7 space-y-6">
+                <h2 class="text-2xl font-bold flex items-center space-x-2">
+                    <i class="fa-solid fa-quote-left text-periwinkleAccent"></i>
+                    <span>Academic & Project Recommendations</span>
+                </h2>
+
+                <!-- Endorsement Card 1 -->
+                <div class="p-5 rounded-2xl bg-slateDark border border-periwinkleAccent/30 shadow-sm text-xs sm:text-sm">
+                    <p class="italic text-grayLight mb-3 leading-relaxed">
+                        "Mike Anthony Pacres demonstrates an exceptional blend of technical IT knowledge and creative illustration talent. During his BSIT studies at Caraga State University, his dedication to optimizing asset pipelines and delivering animation projects on schedule was outstanding."
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-gray-700">
+                        <div class="w-8 h-8 rounded-full bg-periwinkleAccent text-navyPrimary font-bold flex items-center justify-center text-xs">
+                            CSU
+                        </div>
+                        <div>
+                            <span class="font-bold text-white block leading-none">BSIT Faculty & Project Adviser</span>
+                            <span class="text-[11px] text-periwinkleAccent">Caraga State University · Department of Information Technology</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Endorsement Card 2 -->
+                <div class="p-5 rounded-2xl bg-slateDark border border-periwinkleAccent/30 shadow-sm text-xs sm:text-sm">
+                    <p class="italic text-grayLight mb-3 leading-relaxed">
+                        "Mike's ability to interpret storyboard requirements and translate them into polished 2D animations and motion graphics made him an invaluable asset during our collaborative media initiatives."
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2 border-t border-gray-700">
+                        <div class="w-8 h-8 rounded-full bg-periwinkleAccent text-navyPrimary font-bold flex items-center justify-center text-xs">
+                            PL
+                        </div>
+                        <div>
+                            <span class="font-bold text-white block leading-none">Creative Project Lead</span>
+                            <span class="text-[11px] text-periwinkleAccent">Regional Heritage Digital Media Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Philippine Standards & Data Privacy Compliance Banner (RA 10173) -->
+            <div class="lg:col-span-5 bg-slateDark/90 p-6 sm:p-8 rounded-2xl border-2 border-periwinkleAccent/40 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2.5 rounded-xl bg-periwinkleAccent text-navyPrimary">
+                            <i class="fa-solid fa-shield-halved text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white">RA 10173 Privacy Compliance</h3>
+                            <p class="text-xs text-periwinkleAccent">Philippine Data Privacy Act of 2012</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                        This e-portfolio strictly adheres to <strong>Republic Act No. 10173 (Data Privacy Act of 2012)</strong> and UP CAP Employer Standards.
+                    </p>
+
+                    <ul class="text-xs text-grayLight space-y-2 mb-6">
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-check text-periwinkleAccent mt-0.5"></i>
+                            <span><strong>Zero Sensitive Data:</strong> Personal street addresses, private phone numbers, and government ID numbers are omitted.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-check text-periwinkleAccent mt-0.5"></i>
+                            <span><strong>Redacted Credentials:</strong> Academic certificates and badges display redacted sensitive identifiers.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fa-solid fa-check text-periwinkleAccent mt-0.5"></i>
+                            <span><strong>Permissible Contact:</strong> Professional contact options are facilitated via secure form submission.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-3 rounded-xl bg-navyPrimary/80 border border-periwinkleAccent/20 text-[11px] text-periwinkleAccent flex items-center justify-between">
+                    <span>Workplace Readiness Standard</span>
+                    <span class="font-bold text-white">Verified Compliant</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slateDark text-grayLight py-8 border-t border-periwinkleAccent/20 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-center sm:text-left">
+            <p class="font-bold text-white text-sm">Mike Anthony B. Pacres</p>
+            <p class="text-periwinkleAccent">BSIT Graduate · Caraga State University (CSU)</p>
+        </div>
+
+        <div class="text-center sm:text-right">
+            <p>© 2026 Mike Anthony B. Pacres. All Rights Reserved.</p>
+            <p class="text-[11px] text-gray-400">Aligned with NACE Competencies, Harvard OCS Resume & RA 10173 Standards</p>
+        </div>
+    </div>
+</footer>
+
+<!-- LIGHTBOX MODAL FOR HIGH-RESOLUTION IMAGE INSPECTION -->
+<div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4 backdrop-blur-sm transition-opacity" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center">
+
+        <!-- Close Button -->
+        <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white hover:text-periwinkleAccent text-2xl p-2 font-bold focus:outline-none" aria-label="Close image lightbox">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Lightbox Image Frame -->
+        <div class="w-full max-h-[80vh] flex items-center justify-center overflow-hidden rounded-xl bg-navyPrimary/50 p-2 border border-periwinkleAccent/30">
+            <img id="lightbox-img" src="" alt="Enlarged visual artifact" class="max-w-full max-h-[78vh] object-contain rounded-lg">
+        </div>
+
+        <!-- Lightbox Title Caption -->
+        <div id="lightbox-title" class="mt-3 text-center text-white text-sm font-semibold tracking-wide bg-navyPrimary/80 px-4 py-1.5 rounded-full border border-periwinkleAccent/30">
+            Artwork Preview
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // 1. Mobile Navigation Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Auto close mobile menu when clicking any nav link
+            const mobileNavLinks = mobileMenu.querySelectorAll('a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // 2. Skill Category Filter Logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const skillTags = document.querySelectorAll('.skill-tag');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove active state from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-navyPrimary', 'text-white');
+                    btn.classList.add('bg-white', 'text-navyPrimary', 'border', 'border-grayLight');
+                });
+
+                // Add active state to clicked button
+                this.classList.remove('bg-white', 'text-navyPrimary', 'border', 'border-grayLight');
+                this.classList.add('bg-navyPrimary', 'text-white');
+
+                const category = this.getAttribute('data-filter');
+
+                skillTags.forEach(tag => {
+                    if (category === 'all' || tag.getAttribute('data-category') === category) {
+                        tag.style.display = 'inline-flex';
+                    } else {
+                        tag.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 3. Toggle Accessible Plain Text Resume Drawer
+        const toggleResumeBtn = document.getElementById('toggle-text-resume');
+        const textResumeDrawer = document.getElementById('text-resume-drawer');
+
+        if (toggleResumeBtn && textResumeDrawer) {
+            toggleResumeBtn.addEventListener('click', function () {
+                textResumeDrawer.classList.toggle('hidden');
+                if (!textResumeDrawer.classList.contains('hidden')) {
+                    textResumeDrawer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
+
+        // 4. Scroll Reveal Intersection Observer for Fade-in Elements
+        const fadeElements = document.querySelectorAll('.fade-in-element');
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+    });
+
+    // 5. Global Lightbox Modal Functions
+    function openLightbox(imageId, captionText) {
+        const targetImage = document.getElementById(imageId);
+        const modal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+
+        if (targetImage && modal && lightboxImg) {
+            lightboxImg.src = targetImage.src;
+            lightboxImg.alt = targetImage.alt || captionText;
+            if (lightboxTitle) {
+                lightboxTitle.textContent = captionText || targetImage.alt || 'Visual Artifact Inspection';
+            }
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+    }
+
+    function closeLightbox() {
+        const modal = document.getElementById('lightbox-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = ''; // Restore background scroll
+        }
+    }
+
+    // Close lightbox on Escape key press
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+</script>
+</body>
+</html>
